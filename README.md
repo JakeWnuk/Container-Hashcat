@@ -34,5 +34,3 @@ sudo ubuntu-drivers install
 - Build and test image.
     - `docker build . -t dk-hc`
     - `docker run --network=host --rm -it --gpus all -v $PWD:/data dk-hc -m 0 -b`
->![TIP]
->A restart may be needed to apply some changes. 
