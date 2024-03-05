@@ -11,8 +11,14 @@ Hashcat wrapper made for containerized cracking.
     - `optimized-kernel`
 
 ## Install
-
-- `git clone https://github.com/JakeWnuk/Docker-Hashcat && cd ./Docker-Hashcat`
+- Install `Docker` and `git` through `apt`
+```
+sudo apt update && apt install -y docker.io git
+```
+- Clone the repo
+```
+git clone https://github.com/JakeWnuk/Docker-Hashcat && cd ./Docker-Hashcat
+```
 - Install `nvidia-docker2` and `nvidia-container-toolkit` to allow the `gpu` Docker flag.
 ```
 sudo apt update && sudo apt install -y nvidia-docker2 nvidia-container-toolkit
@@ -24,7 +30,9 @@ sudo apt update && sudo apt install -y nvidia-docker2 nvidia-container-toolkit
 sudo ubuntu-drivers install
 ```
 >[!TIP]
->[Please refer to the official documentation.](https://ubuntu.com/server/docs/nvidia-drivers-installation)
+> [Please refer to the official documentation.](https://ubuntu.com/server/docs/nvidia-drivers-installation)
 - Build and test image.
     - `docker build . -t dk-hc`
     - `docker run --network=host --rm -it --gpus all -v $PWD:/data dk-hc -m 0 -b`
+>![TIP]
+> A restart may be needed to apply some changes. Another example is `sudo docker run --rm --runtime=nvidia --gpus all ubuntu nvidia-smi`.
